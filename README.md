@@ -1,190 +1,141 @@
-<h3 align="center"><img src="misc/logo/logo-128x128.png" alt="nnn"><br>nnn - <i>Supercharge your productivity!</i></h3>
+# nnnn: a fast terminal filemanager with Miller columns in text mode
 
-<p align="center">
-<a href="https://github.com/jarun/nnn/releases/latest"><img src="https://img.shields.io/github/release/jarun/nnn.svg?maxAge=600&label=rel" alt="Latest release" /></a>
-<a href="https://repology.org/project/nnn/versions"><img src="https://repology.org/badge/tiny-repos/nnn.svg?header=repos" alt="Availability"></a>
-<a href="https://travis-ci.org/jarun/nnn"><img src="https://img.shields.io/travis/jarun/nnn/master.svg?label=travis" alt="Travis Status" /></a>
-<a href="https://circleci.com/gh/jarun/workflows/nnn"><img src="https://img.shields.io/circleci/project/github/jarun/nnn.svg?label=circleci" alt="CircleCI Status" /></a>
-<a href="https://en.wikipedia.org/wiki/Privacy-invasive_software"><img src="https://img.shields.io/badge/privacy-✓-crimson?maxAge=2592000" alt="Privacy Awareness" /></a>
-<a href="https://github.com/jarun/nnn/blob/master/LICENSE"><img src="https://img.shields.io/badge/©-BSD%202--Clause-important.svg?maxAge=2592000" alt="License" /></a>
-</p>
+nnnn is a [fork of nnn](https://github.com/jarun/nnn)
 
-<p align="center"><a href="https://asciinema.org/a/353811"><img src="https://i.imgur.com/InHB5DB.png" /></a></p>
-<p align="center"><i>icons and colors asciicast</i></p>
+## Name
 
-<h3 align="center">[<a
-href="https://github.com/jarun/nnn#features">Features</a>] [<a
-href="https://github.com/jarun/nnn#quickstart">Quickstart</a>] [<a
-href="https://github.com/jarun/nnn/tree/master/plugins#nnn-plugins">Plugins</a>] [<a
-href="https://github.com/jarun/nnn/wiki">Documentation</a>]</h3>
+To avoid confusion with nnn, on which nnnn is based, the name was changed.
 
-<br>
+nnnn is a short recursive acronym in the free software tradition.
 
-[![](https://user-images.githubusercontent.com/324519/94587860-062d7a80-0238-11eb-99b1-a9c9f0c32ac2.png)](https://www.youtube.com/embed/-knZwdd1ScU)
+"nnnn" stands for: "nnnn (is) notnnnn", while "nnn" apparently meant "nnn (is)
+not noice".
 
-<br>
+However, to be accessible with fewer keypresses, the binaries will use a
+shorter name: simply the letter n, with a symlink to n4 and nnnn made at
+install time.
 
-`nnn` (_n³_) is a full-featured terminal file manager. It's tiny and nearly 0-config with an [incredible speed](https://github.com/jarun/nnn/wiki/Performance).
+The name may evolve. Other candidates are nfm (for n file manager) or just n.
 
-It is designed to be unobtrusive with smart workflows to match the trains of thought.
+## Goal
 
-`nnn` can analyze disk usage, batch rename, launch apps and pick files. The plugin repository has tons of plugins and documentation to extend the capabilities further e.g. [preview](https://github.com/jarun/nnn/wiki/Live-previews), (un)mount disks, find & list, file/dir diff, upload files.
+The goal is to create a perfect filemanager for msys2 on windows, including:
 
-There are 2 independent (neo)vim plugins - [nnn.vim](https://github.com/mcchrish/nnn.vim) and [vim-floaterm nnn wrapper](https://github.com/voldikss/vim-floaterm#nnn).
+ - distributing binaries or packages to ease installation with pacman
 
-It runs smoothly on the Pi, [Termux](https://www.youtube.com/embed/AbaauM7gUJw) (Android), Linux, macOS, BSD, Haiku, Cygwin, WSL, across DEs and GUI utilities or a strictly CLI environment.
+ - packaging at least one font that can be used by mintty to immediately access
+   icons
 
-<details><summary><i><b>Expand</b></i> for some nnn magic! :dark_sunglasses:</summary><br><ul>
-  <li>Instantly load, sort, filter thousands of files</li>
-  <li>Type to navigate with automatic dir selection</li>
-  <li>List input stream and pick entries to stdout or file</li>
-  <li>find/fd/grep/ripgrep/fzf from nnn and list in nnn</li>
-  <li> Never lose context - start where you quit</li>
-  <li>Mount any cloud storage service in a few keypresses</li>
-  <li>Select files from anywhere (not just a single dir)</li>
-  <li>Unlimited bookmarks, plugins, cmds with custom hotkeys</li>
-  <li>Write a plugin in any language you know</li>
-  <li>Edit and preview markdown, man page, html</li>
-  <li>Open a file and auto-advance to the next</li>
-  <li>Filter filtered entries, export list of visible files</li>
-  <li>Configure the middle mouse click to do anything</li>
-  <li>Fuzzy search subtree and open a file (or its parent dir)</li>
-  <li>Load four dirs with custom settings at once</li>
-  <li>Notifications on cp, mv, rm completion</li>
-  <li>Auto-sync selection to system clipboard</li>
-  <li>Access selection from another instance of nnn</li>
-  <li>Open text files detached in another pane/tab/window</li>
-  <li>Mount and modify archives</li>
-  <li>Create files/dirs/duplicates with parents (like <i>mkdir -p</i>)</li>
-  <li>Toggle hidden with <kbd>.</kbd>, visit HOME with <kbd>~</kbd>, last dir with <kbd>-</kbd></li>
-  <li>Mark a frequently visited dir at runtime</li>
-  <li>Sort by modification, access and inode change time</li>
-  <li>Compile out/in features with make variables</li>
-  <li>Watch matrix text fly or read fortune messages</li>
-  <li>Configure in 5 minutes!</li>
-</ul></details>
+ - any other extra features that make sense on Windows 10 computer running
+   msys2, such as:
 
-<p align="center">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/donate-@PayPal-1eb0fc.svg" alt="Donate via PayPal!" /></a>
-</p>
+   1. replacing the slow fork of a shell (such as when pressing !) by a
+     persistent shell, which can be immediately displayed by a shortcut;
+     however a quake-like terminal is another interesting idea.
 
-## Features
+   2. adding dynamic Miller columns to take advantage of the large screen
 
-- Frugal
-  - Typically needs less than 3.5MB resident memory
-  - Works with 8 colors (and xterm 256 colors)
-  - Disk-IO sensitive (few disk reads and writes)
-  - No FPU usage (all integer maths, even for file size)
-  - Minimizes screen refresh with fast line redraws
-  - Tiny binary (typically around 100KB)
-  - 1-column mode for smaller terminals and form factors
-  - Hackable - compile in/out features and dependencies
-- Portable
-  - Language-agnostic plugins
-  - Static binary available (no need to install)
-  - Minimal library deps, easy to compile
-  - No config file, minimal config with sensible defaults
-  - Plugin to backup configuration
-  - Widely available on many packagers
-  - Touch enabled, comfortable on handhelds too!
-  - Unicode support
-- Quality
-  - Privacy-aware (no unconfirmed user data collection)
-  - POSIX-compliant, follows Linux kernel coding style
-  - Highly optimized, static analysis integrated code
-- Modes
-  - Light (default), detail
-  - Disk usage analyzer (block/apparent)
-  - File picker, (neo)vim plugin
-- Navigation
-  - *Type-to-nav* mode with dir auto-select
-  - Contexts (_aka_ tabs/workspaces) with custom colors
-  - Sessions, bookmarks with hotkeys; mark and visit a dir
-  - Remote mounts (needs sshfs, rclone)
-  - Familiar shortcuts (arrows, <kbd>~</kbd>, <kbd>-</kbd>, <kbd>@</kbd>), quick look-up
-  - CD on quit (*easy* shell integration)
-  - Auto-advance on opening files
-- Search
-  - Instant filtering with *search-as-you-type*
-  - Regex (POSIX/PCRE) and string (default) filters
-  - Subtree search plugin to open or edit files
-- Sort
-  - Ordered pure numeric names by default (visit _/proc_)
-  - Case-insensitive version (_aka_ natural) sort
-  - By name, access/change/mod (default) time, size, extn
-  - Reverse sort
-- Mimes
-  - Preview hovered files in FIFO-based previewer
-  - Open with desktop opener or specify a custom opener
-  - File-specific colors (or minimal _dirs in context color_)
-  - Icons (customize and compile-in)
-  - Plugins for image and video thumbnails
-  - Create, list, extract, mount (FUSE based) archives
-  - Option to open all text files in EDITOR
-- Information
-  - Detailed file information
-  - Media information plugin
-- Convenience
-  - Run plugins and custom commands with hotkeys
-  - FreeDesktop compliant trash (needs trash-cli)
-  - Cross-dir file/all/range selection
-  - Batch renamer for selection or dir
-  - Display file list from stdin or plugin
-  - Copy (as), move (as), delete, archive, link selection
-  - Dir updates, notification on cp, mv, rm completion
-  - Copy file paths to system clipboard on select
-  - Create (with parents), rename, duplicate files and dirs
-  - Launch apps, run commands, spawn a shell, toggle exe
-  - Hovered file set as `$nnn` at prompt and spawned shell
-  - Lock terminal after configurable idle timeout
-  - Basic support for screen readers and braille displays
+   3. not requiring a recompilation only to change shortcuts
 
-## Quickstart
+## Dynamic Miller columns
 
-1. [Install](https://github.com/jarun/nnn/wiki/Usage) `nnn` and any dependecies you need. All files are opened with the desktop opener by default.
-2. Add option `-e` to your alias to open text files in `$VISUAL`/`$EDITOR`/ vi. [Open detached](https://github.com/jarun/nnn/wiki/Basic-use-cases#detached-text) if you wish.
-3. Configure [cd on quit](https://github.com/jarun/nnn/wiki/Basic-use-cases#configure-cd-on-quit).
-4. [Install plugins](https://github.com/jarun/nnn/tree/master/plugins#installation).
-5. Use option `-x` to copy selected file paths to system clipboard and show notis on cp, mv, rm completion.
-6. For a CLI-only environment, customize and use plugin [`nuke`](https://github.com/jarun/nnn/blob/master/plugins/nuke) with option `-c` (overrides `-e`).
-7. Bid _ls_ goodbye! `alias ls='nnn -de'` :sunglasses:
+This fork was driven by the lack of good text-mode file manager featuring
+Miller columns: ranger and lf each have serious drawbacks.
 
-Don't memorize! Arrows (or <kbd>h</kbd> <kbd>j</kbd> <kbd>k</kbd> <kbd>l</kbd>), <kbd>/</kbd>, <kbd>q</kbd> suffice. <kbd>Tab</kbd> creates, cycles contexts. <kbd>?</kbd> lists shortcuts.
+Dynamic Miller columns will be the #1 difference between nnnn and nnn.
 
-[![Wiki](https://img.shields.io/badge/RTFM-nnn%20Wiki-important?maxAge=2592000)](https://github.com/jarun/nnn/wiki)
+### Background
 
-## Developers
+In nnn issue #332, the reason given for not adding Miller columns was the
+redundant disk reads:
 
-- [Arun Prakash Jana](https://github.com/jarun) (Copyright © 2016-2020)
-- [0xACE](https://github.com/0xACE)
-- [Anna Arad](https://github.com/annagrram)
-- [KlzXS](https://github.com/KlzXS)
-- [Léo Villeveygoux](https://github.com/leovilok)
-- [Maxim Baz](https://github.com/maximbaz)
-- [Todd Yamakawa](https://github.com/toddyamakawa)
-- and other contributors
+> The fundamental issue with Miller View is too many redundant disk reads due
+> to reading of subdir contents on opening or minor navigation in parent. On a
+> remote mount this subdir content load will also slow you down.
 
-Visit the [ToDo list](https://github.com/jarun/nnn/issues/781) to contribute or see the features in progress.
+_Originally posted by @jarun in https://github.com/jarun/nnn/issues/332#issuecomment-534528993_
 
-## Elsewhere
+This is a very valid reason. Having 3 columns used at all times is wasteful.
 
-- [ArchWiki](https://wiki.archlinux.org/index.php/Nnn)
-- [FOSSMint](https://www.fossmint.com/nnn-linux-terminal-file-browser/)
-- [gHacks Tech News](https://www.ghacks.net/2019/11/01/nnn-is-an-excellent-command-line-based-file-manager-for-linux-macos-and-bsds/)
-- Hacker News [[1](https://news.ycombinator.com/item?id=18520898)] [[2](https://news.ycombinator.com/item?id=19850656)]
-- [It's FOSS](https://itsfoss.com/nnn-file-browser-linux/)
-- LinuxLinks [[1](https://www.linuxlinks.com/nnn-fast-and-flexible-file-manager/)] [[2](https://www.linuxlinks.com/bestconsolefilemanagers/)] [[3](https://www.linuxlinks.com/excellent-system-tools-nnn-portable-terminal-file-manager/)]
-- [Open Source For You](https://www.opensourceforu.com/2019/12/nnn-this-feature-rich-terminal-file-manager-will-enhance-your-productivity/)
-- [Suckless Rocks](https://suckless.org/rocks/)
-- [Ubuntu Full Circle Magazine - Issue 135](https://fullcirclemagazine.org/issue-135/)
-- [Wikipedia](https://en.wikipedia.org/wiki/Nnn_(file_manager))
+### Dynamic Miller Columns
 
-## Videos
+However, as proposed in https://github.com/jarun/nnn/issues/794 that led to
+this fork, a Miller-like mode can be done just with the existing information,
+without extra disk reads or CPU cycles waste.
 
-- [I'M GOING TO USE THE NNN FILE BROWSER! 😮](https://www.youtube.com/embed/U2n5aGqou9E)
-- [NNN: Is This Terminal File Manager As Good As People Say?](https://www.youtube.com/embed/KuJHo-aO_FA)
-- [This Week in Linux 114 - TuxDigital](https://www.youtube.com/watch?v=5W9ja0DQjSY&t=2059s)
-- [NNN File Manager](https://www.youtube.com/embed/1QXU4XSqXNo)
-- [nnn file manager basics - Linux](https://www.youtube.com/embed/il2Fm-KJJfM)
-- [nnn file manager on Termux (Android)](https://www.youtube.com/embed/AbaauM7gUJw)
-- [nnn - A File Manager (By Uoou, again.)](https://www.youtube.com/embed/cnzuzcCPYsk)
+This needs one simple change: not having the numbers of columns fixed to 3 at
+all times (which starts by wasting time at startup on acquiring information on
+2 levels above) but dynamic (which further avoids having to refresh minor view
+when navigating in parent) starting with 1 column, and returning to 1 column
+when going back to the initial point.
+
+To use less than 3 columns would simply mean to erase stale information and not
+show anything until the navigation is confirmed by entering into a folder, like
+by pressing on the left or right key - which would keep the performance
+constant, while enriching the navigation with context about the content of the
+folder previously visited in the filesystem hierarchy.
+
+This can be seen in the 2 extreme situations (going into subfolders vs going
+into parent folders), that eventualy converge back to the initial 1 column mode
+when changing direction.
+
+### For the "going into subfolders" situation:
+
+ - nnn would start exactly as it does now, with the exact same look and feel
+
+ - but upon opening a child folder, the screen is not redrawn the same: just
+   keep the information of the parent folder on the left hand side (where it
+   already is!), while supplementing it on a middle column now displayed (to
+   the right of the parent folder) with the information of the child folder,
+   which now becomes navigable: 2 columns are now displayed, the middle column
+   is navigable
+
+ - if another child folder is opened, the same applies, except this time it
+   gets displayed in the right column (.), with the immediate parent in the
+   middle (..), and the parent own parent in the left column (../..) : 3
+   columns are now displayed, the right column is navigable
+
+ - when going further in, the 2 rightmost columns are moved to the left: 3
+   columns are still displayed, the right column is navigable
+
+ - when leaving the child folder, the child content is erased (the right column
+   is cleared),  its parent becomes navigable again, but no other folder is
+   read: 2 columns are now displayed, the center column is navigable
+
+ - if going back again, likewise, the center column is erased, its parent
+   become navigable: only 1 column is now shown
+
+### For "going into parent folders" situations:
+
+ - likewise, start as is
+
+ - when pressing on the left key, redraw the current folder content in a middle
+   column, while drawing the parent content folder now in the left column: 2
+   columns are now displayed, the left column is navigable
+
+ - when pressing again on the left, same thing: 3 columns are now displayed,
+   the left column is navigable
+        
+ - when starting navigation on the left column: the stale content of the middle
+   and right column is erased. Only one column is shown and navigable. This
+   allows to goes back to the "going into subfolders" situation, without visual
+   distraction.
+
+It could be argued that knowing which column is navigable can be hard, as when
+showing >1 column it is not always the same column. However, the column being
+navigable can be identified by the presence file selector, which also moves
+when pressing on up/down, while other non navigable columns would have no such
+visual identifier.
+
+If keeping multiple lists of the files available in the displayed folders when
+having >1 column is a concern for the memory used, the previous lists can be
+discarded, keeping instead only the information displayed on the screen:  this
+means that when coming back to a previously visited folder, instead of having
+the information cached and immediately available, it will simply have to be
+read from disk - which is preferable anyway, as new file may have been created,
+and which would be identical performance-wise to the current situation.
+
+### Implementation
+
+Work in progres...
+
